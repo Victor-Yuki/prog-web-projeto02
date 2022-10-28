@@ -1,4 +1,4 @@
-Programação para Web - Projeto 1
+Programação para Web - Projeto 2
 
 Feito pela dupla:
   Eduardo Golin Sudaia e
