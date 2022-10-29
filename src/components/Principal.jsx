@@ -3,58 +3,58 @@ import React from "react";
 function Principal() {
   return (
     <header>
-      <div class="container">
+      <div className="container">
         <div>
-          <div class="title">
+          <div className="title">
             <h1>Simples. Seguro.</h1>
             <h1>Troque mensagens com confiança.</h1>
           </div>
 
-          <p class="content">
+          <p className="content">
             Com o WhatsApp, suas mensagens e chamadas são rápidas, simples,
             seguras e gratuitas*. Disponível para celulares em todo o mundo.
           </p>
-          <p class="obs">
+          <p className="obs">
             * Sujeito à cobrança de dados. Entre em contato com sua operadora
             para mais informações.
           </p>
-          <a href="#" class="btn">
+          <a href="#" className="btn">
             BAIXAR AGORA
           </a>
-          <div class="links">
-            <a href="#" class="link">
+          <div className="links">
+            <a href="#" className="link">
               <img
-                class="link-icon"
+                className="link-icon"
                 src="images/android-icon.png"
                 alt="android-icon"
               />
               <span>Android</span>
-              <img src="images/seta.png" alt="seta" class="link-arrow" />
+              <img src="images/seta.png" alt="seta" className="link-arrow" />
             </a>
-            <a href="#" class="link">
+            <a href="#" className="link">
               <img
-                class="link-icon"
+                className="link-icon"
                 src="images/apple-icon.png"
                 alt="apple-icon"
               />
               <span>iPhone</span>
-              <img src="images/seta.png" alt="seta" class="link-arrow" />
+              <img src="images/seta.png" alt="seta" className="link-arrow" />
             </a>
-            <a href="#" class="link">
+            <a href="#" className="link">
               <img class="link-icon" src="images/pc-icon.png" alt="pc-icon" />
               <span>Mac ou Windows</span>
-              <img src="images/seta.png" alt="seta" class="link-arrow" />
+              <img src="images/seta.png" alt="seta" className="link-arrow" />
             </a>
           </div>
         </div>
 
         <img
-          class="phone-img"
+          className="phone-img"
           src="images/whatsapp-phone.png"
           alt="smartphone com whatsapp"
         />
         <img
-          class="phone-img-sm"
+          className="phone-img-sm"
           src="images/whatsapp-phone-3.png"
           alt="smartphone com whatsapp"
         />

@@ -2,12 +2,12 @@ import React from "react";
 
 function Conteudo() {
   return (
-    <div class="contents">
-      <section class="wa-business flex-content">
+    <div className="contents">
+      <section className="wa-business flex-content">
         <h2>Aplicativo WhatsApp Business</h2>
         <p>
           O{" "}
-          <a href="#" class="text-link">
+          <a href="#" className="text-link">
             WhatsApp Business
           </a>{" "}
           é um aplicativo gratuito e desenvolvido para atender às necessidades
@@ -19,7 +19,7 @@ function Conteudo() {
           O WhatsApp também pode ajudar empresas de médio e grande porte a
           oferecer atendimento e enviar notificações importantes aos clientes.
           Saiba mais sobre a{" "}
-          <a href="#" class="text-link">
+          <a href="#" className="text-link">
             API do WhatsApp Business.
           </a>
         </p>
@@ -29,7 +29,7 @@ function Conteudo() {
           alt="smartphone com whatsapp business"
         />
       </section>
-      <section class="wa-seguranca flex-content">
+      <section className="wa-seguranca flex-content">
         <img src="images/seguranca.png" alt="uma mensagem" />
         <h4>PROTEGIDO COM A CRIPTOGRAFIA DE PONTA A PONTA</h4>
         <h2>Segurança padrão</h2>

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Animal from "./Animal";
+import axios from "axios";
 
-const axios = require("axios").default;
 
 function Animais() {
   const [isLoginHidden, setLoginHidden] = useState(false),
     [isHidden, setHidden] = useState(true),
     [numAnimais, setNumAnimais] = useState(0),
     [listAnimais, setListAnimais] = useState([]);
+
+  //const axios = require("axios");
 
   useEffect(() => {
     var logado = localStorage.getItem("logado");
@@ -17,11 +19,10 @@ function Animais() {
   }, []);
 
   function login() {
-    axios
-      .post("https://reqres.in/api/login", {
-        email: "eve.holt@reqres.in",
-        password: "cityslicka"
-      })
+    axios.post("https://reqres.in/api/login/", {
+      email: "eve.holt@reqres.in",
+      password: "cityslicka"
+    })
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
@@ -91,16 +92,18 @@ function Animais() {
         <button class="botao" onClick={gerarAnimal}>
           GERAR
         </button>
-        {listAnimais.map((animal, index) => (
-          <div key={index}>
-            <Animal
-              nome={animal.nome}
-              latim={animal.latim}
-              habitat={animal.habitat}
-              url={animal.imagem}
-            />
-          </div>
-        ))}
+        <div className="lista-animais">
+          {listAnimais.map((animal, index) => (
+            <div key={index}>
+              <Animal
+                nome={animal.nome}
+                latim={animal.latim}
+                habitat={animal.habitat}
+                url={animal.imagem}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

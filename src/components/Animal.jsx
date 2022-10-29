@@ -1,10 +1,24 @@
 import React from 'react';
- function Animal ({nome, latim, habitat, url }) {
-   return(
-     <div>
-       <span>Nome: {nome}</span>
-      <li> Nome:{nome} --- Nome em latim:{latim} --- Habitat:{habitat} - <img src={url} height="500"/></li>
-     </div>
-   );
- }
-  export default Animal;
+
+function Animal({ nome, latim, habitat, url }) {
+  if (nome.length > 22) {
+    nome = nome.slice(0, 22);
+  }
+  return (
+    <div className="card">
+      <p className="card-name">
+        <strong>{nome}</strong>
+      </p>
+      <span>
+        <img className="card-img" src={url} alt="" />
+      </span>
+
+      <div className="card-info">
+        <p>{latim}</p>
+        <p>{habitat}</p>
+      </div>
+    </div>
+  );
+}
+
+export default Animal;
