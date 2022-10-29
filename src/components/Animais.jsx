@@ -39,6 +39,42 @@ function Animais() {
     setHidden(false);
   }
 
+  function gerarAnimal() {
+    if (numAnimais <= 0) {
+      alert("O número deve ser maior que 0.");
+    } else if (numAnimais > 50) {
+      alert("O número de animais está limitado em 50.");
+    } else {
+      let endpoint = "https://zoo-animal-api.herokuapp.com/animals/rand/";
+      axios
+        .get(endpoint + numAnimais)
+        .then((res) => {
+          //console.log(res.data);
+          listarAnimais(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+
+  async function listarAnimais(animais) {
+    console.log(animais);
+    const new_lista = [];
+    for (var i = 0; i < animais.length; i++) {
+      let new_animal = {
+        nome: animais[i].name,
+        latim: animais[i].latin_name,
+        habitat: animais[i].habitat,
+        imagem: animais[i].image_link
+      };
+      console.log(new_animal);
+      new_lista.push(new_animal);
+    }
+    setListAnimais([...listAnimais, ...new_lista]);
+    console.log("lista" + listAnimais);
+  }
+
   return (
     <div className="animais">
       <button class="botao" onClick={login} hidden={isLoginHidden}>
