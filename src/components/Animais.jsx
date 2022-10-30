@@ -43,8 +43,8 @@ function Animais() {
   function gerarAnimal() {
     if (numAnimais <= 0) {
       alert("O número deve ser maior que 0.");
-    } else if (numAnimais > 50) {
-      alert("O número de animais está limitado em 50.");
+    } else if (numAnimais > 10) {
+      alert("O número de animais está limitado em 10 por procura.");
     } else {
       let endpoint = "https://zoo-animal-api.herokuapp.com/animals/rand/";
       axios
