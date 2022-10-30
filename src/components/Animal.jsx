@@ -9,7 +9,7 @@ function Animal({ nome, latim, habitat, url }) {
       <p className="card-name">
         <strong>{nome}</strong>
       </p>
-      <span>
+      <span className='img-container'>
         <img className="card-img" src={url} alt="" />
       </span>
 

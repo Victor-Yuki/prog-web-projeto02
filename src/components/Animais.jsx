@@ -82,16 +82,18 @@ function Animais() {
         LOGIN
       </button>
       <div className="api" hidden={isHidden}>
-        <input
-          type="number"
-          value={numAnimais}
-          onChange={(ev) => {
-            setNumAnimais(ev.target.value);
-          }}
-        />
-        <button class="botao" onClick={gerarAnimal}>
-          GERAR
-        </button>
+        <div className="input-field">
+          <input
+            type="number"
+            value={numAnimais}
+            onChange={(ev) => {
+              setNumAnimais(ev.target.value);
+            }}
+          />
+          <button class="botao" onClick={gerarAnimal}>
+            GERAR
+          </button>
+        </div>
         <div className="lista-animais">
           {listAnimais.map((animal, index) => (
             <div key={index}>
