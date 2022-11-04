@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function Animal({ nome, latim, habitat, url }) {
   if (nome.length > 22) {
@@ -9,7 +9,7 @@ function Animal({ nome, latim, habitat, url }) {
       <p className="card-name">
         <strong>{nome}</strong>
       </p>
-      <span className='img-container'>
+      <span className="img-container">
         <img className="card-img" src={url} alt="" />
       </span>
 

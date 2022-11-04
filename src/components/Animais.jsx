@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Animal from "./Animal";
-import axios from "axios";
-
+import API from "./API";
+import Janela from "./Janela";
+import Login from "./Login";
 
 function Animais() {
   const [isLoginHidden, setLoginHidden] = useState(false),
-    [isHidden, setHidden] = useState(true),
-    [numAnimais, setNumAnimais] = useState(0),
-    [listAnimais, setListAnimais] = useState([]);
-
-  //const axios = require("axios");
+    [isAPIHidden, setAPIHidden] = useState(true),
+    [isJanelaHidden, setJanelaHidden] = useState(true),
+    [text, setText] = useState("");
 
   useEffect(() => {
     var logado = localStorage.getItem("logado");
@@ -18,95 +16,29 @@ function Animais() {
     }
   }, []);
 
-  function login() {
-    axios.post("https://reqres.in/api/login/", {
-      email: "eve.holt@reqres.in",
-      password: "cityslicka"
-    })
-      .then((res) => {
-        console.log(res);
-        if (res.status === 200) {
-          localStorage.setItem("logado", true);
-          hideLogin();
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
   function hideLogin() {
     setLoginHidden(true);
-    setHidden(false);
+    setAPIHidden(false);
   }
 
-  function gerarAnimal() {
-    if (numAnimais <= 0) {
-      alert("O número deve ser maior que 0.");
-    } else if (numAnimais > 10) {
-      alert("O número de animais está limitado em 10 por procura.");
-    } else {
-      let endpoint = "https://zoo-animal-api.herokuapp.com/animals/rand/";
-      axios
-        .get(endpoint + numAnimais)
-        .then((res) => {
-          //console.log(res.data);
-          listarAnimais(res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+  function showMessage(msg) {
+    setJanelaHidden(false);
+    setText(msg);
   }
 
-  async function listarAnimais(animais) {
-    console.log(animais);
-    const new_lista = [];
-    for (var i = 0; i < animais.length; i++) {
-      let new_animal = {
-        nome: animais[i].name,
-        latim: animais[i].latin_name,
-        habitat: animais[i].habitat,
-        imagem: animais[i].image_link
-      };
-      console.log(new_animal);
-      new_lista.push(new_animal);
-    }
-    setListAnimais([...listAnimais, ...new_lista]);
-    console.log("lista" + listAnimais);
+  function hideJanela() {
+    setJanelaHidden(true);
   }
 
   return (
     <div className="animais">
-      <button class="botao" onClick={login} hidden={isLoginHidden}>
-        LOGIN
-      </button>
-      <div className="api" hidden={isHidden}>
-        <div className="input-field">
-          <input
-            type="number"
-            value={numAnimais}
-            onChange={(ev) => {
-              setNumAnimais(ev.target.value);
-            }}
-          />
-          <button class="botao" onClick={gerarAnimal}>
-            GERAR
-          </button>
-        </div>
-        <div className="lista-animais">
-          {listAnimais.map((animal, index) => (
-            <div key={index}>
-              <Animal
-                nome={animal.nome}
-                latim={animal.latim}
-                habitat={animal.habitat}
-                url={animal.imagem}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      <Login
+        hidden={isLoginHidden}
+        hideLogin={hideLogin}
+        showMessage={showMessage}
+      />
+      <API hidden={isAPIHidden} showMessage={showMessage} />
+      <Janela hidden={isJanelaHidden} text={text} hideJanela={hideJanela} />
     </div>
   );
 }
